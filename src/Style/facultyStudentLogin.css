@@ -1,0 +1,46 @@
+#trail {
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(rgba(2, 2, 2, 0.55), rgba(0, 0, 0, 0.78)),
+    url("./Images/background.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+}
+.facultyNav {
+  background-color: rgb(2, 36, 42);
+  color: white;
+  display: flex;
+
+  align-items: center;
+}
+
+#navbarNav {
+  color: white;
+  margin-left: -10rem;
+  justify-content: center;
+}
+@media (max-width: 800px) {
+  #navbarNav {
+    margin-left: 0;
+  }
+}
+.linkHover {
+  color: white;
+}
+.linkHover:hover {
+  color: rgb(10, 146, 244);
+}
+.logoNav {
+  margin-top: 0.5rem;
+  background-color: white;
+  color: black;
+  font-weight: 600;
+  border-radius: 5px;
+  letter-spacing: 2px;
+  padding: 0.3rem 1rem;
+}
+.z100 {
+  z-index: 100;
+}
