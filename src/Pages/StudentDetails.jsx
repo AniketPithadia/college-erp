@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import {newerChats, previousChats} from '../redux/action/studentAction'
+import "../Style/facultyStudentLogin.css";
+
 import axios from "axios";
 import HomeHelper from "../Components/HomeHelper";
 import { Link, useHistory } from "react-router-dom";
@@ -57,7 +58,7 @@ const StudentDetails = () => {
   };
 
   return (
-    <div>
+    <div className="offWhiteBackground">
       {store.student.isAuthenticated ? (
         <>
           <HomeHelper />

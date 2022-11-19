@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import classnames from "classnames";
 import FacultyHomeHelper from "../Components/FacultyHomeHelper";
+import "../Style/facultyStudentLogin.css";
+
 import { facultyUpdatePassword } from "../redux/action/facultyAction";
 
 const FacultyUpdatePassword = () => {
@@ -34,7 +36,7 @@ const FacultyUpdatePassword = () => {
   };
   useEffect(() => {}, [store.faculty]);
   return (
-    <div>
+    <div className="offWhiteBackground">
       {store.faculty.isAuthenticated ? (
         <>
           <FacultyHomeHelper />
@@ -42,7 +44,7 @@ const FacultyUpdatePassword = () => {
             <div className="row d-flex justify-content-center align-items-center m-5">
               <div className="col-md-6 ">
                 <form noValidate onSubmit={formHandler}>
-                  <div className="form-group">
+                  <div className="form-group mb-3">
                     <label htmlFor="emailId">Old Password</label>
                     <input
                       onChange={(e) => setOldPassword(e.target.value)}
@@ -59,7 +61,7 @@ const FacultyUpdatePassword = () => {
                       </div>
                     )}
                   </div>
-                  <div className="form-group">
+                  <div className="form-group mb-3">
                     <label htmlFor="passwordId">New Password</label>
                     <input
                       onChange={(e) => setNewPassword(e.target.value)}
@@ -76,7 +78,7 @@ const FacultyUpdatePassword = () => {
                       </div>
                     )}
                   </div>
-                  <div className="form-group">
+                  <div className="form-group mb-3">
                     <label htmlFor="passwordCId">Confirm New Password</label>
                     <input
                       onChange={(e) => setConfirmNewPassword(e.target.value)}

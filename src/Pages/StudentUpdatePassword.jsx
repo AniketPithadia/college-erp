@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import classnames from "classnames";
 import HomeHelper from "../Components/HomeHelper";
+import "../Style/facultyStudentLogin.css";
+
 import { studentUpdatePassword } from "../redux/action/studentAction";
 
 const StudentUpdatePassword = () => {
@@ -32,15 +34,15 @@ const StudentUpdatePassword = () => {
     );
   };
   return (
-    <div>
+    <div className="offWhiteBackground">
       {store.student.isAuthenticated ? (
         <>
           <HomeHelper />
           <div className="container m-5 ">
-            <div className="row m-5">
+            <div className="row justify-items-center m-5">
               <div className="col-md-5 m-auto">
                 <form noValidate onSubmit={formHandler}>
-                  <div className="form-group">
+                  <div className="form-group mb-3">
                     <label htmlFor="emailId">Old Password</label>
                     <input
                       onChange={(e) => setOldPassword(e.target.value)}
@@ -57,7 +59,10 @@ const StudentUpdatePassword = () => {
                       </div>
                     )}
                   </div>
-                  <div className="form-group">
+                  <div
+                    className="form-group mb-3"
+                    style={{ marginBottom: "1rem" }}
+                  >
                     <label htmlFor="passwordId">New Password</label>
                     <input
                       onChange={(e) => setNewPassword(e.target.value)}
@@ -74,7 +79,10 @@ const StudentUpdatePassword = () => {
                       </div>
                     )}
                   </div>
-                  <div className="form-group">
+                  <div
+                    className="form-group mb-3"
+                    style={{ marginBottom: "1rem" }}
+                  >
                     <label htmlFor="passwordCId">Confirm New Password</label>
                     <input
                       onChange={(e) => setConfirmNewPassword(e.target.value)}

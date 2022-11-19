@@ -15,7 +15,7 @@ import {
 
 import { setStudentUser, studentLogout } from "./redux/action/studentAction";
 
-import LoginPage from "./Pages/LoginPage";
+import LoginPage from "./Pages/AdminLoginPage";
 import Home from "./Pages/StudentHome";
 
 import StudentDetails from "./Pages/StudentDetails";
@@ -30,7 +30,6 @@ import FacultyStudentLoginPags from "./Pages/FacultyStudentLoginPags";
 import StudentUpdatePassword from "./Pages/StudentUpdatePassword";
 import FacultyUpdatePassword from "./Pages/FacultyUpdatePassword";
 import ForgotPassword from "./Pages/ForgotPassword";
-import Chat from "./Pages/Chat";
 import RecieverUserDetails from "./Pages/RecieverUserDetails";
 import StudentUpdateProfile from "./Pages/StudentUpdateProfile";
 
@@ -171,7 +170,6 @@ function App() {
             path="/forgotPassword/:user"
             component={ForgotPassword}
           />
-          <Route exact path="/chat/:room" component={Chat} />
           <Route
             exact
             path="/student/:registrationNumber"

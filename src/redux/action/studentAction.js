@@ -12,13 +12,6 @@ import {
 import { endpoint } from "../../util";
 const url = endpoint;
 
-export const setChatHistory = (data) => {
-  return {
-    type: "SET_CHAT",
-    payload: data,
-  };
-};
-
 const setStudent = (data) => {
   return {
     type: SET_STUDENT,
@@ -26,44 +19,9 @@ const setStudent = (data) => {
   };
 };
 
-const chatHelp = (data) => {
-  return {
-    type: "CHAT_HELPER",
-    payload: data,
-  };
-};
-
 const getStudentByRegNameHelper = (data) => {
   return {
     type: "GET_STUDENT_BY_REG_NUM",
-    payload: data,
-  };
-};
-
-const privateConversation = (data) => {
-  return {
-    type: "GET_PRIVATE_CONVERSATION",
-    payload: data,
-  };
-};
-
-const privateConversation2 = (data) => {
-  return {
-    type: "GET_PRIVATE_CONVERSATION2",
-    payload: data,
-  };
-};
-
-const newerChatsHelper = (data) => {
-  return {
-    type: "GET_NEWER_CHATS",
-    payload: data,
-  };
-};
-
-const previousChatsHelper = (data) => {
-  return {
-    type: "GET_PREVIOUS_CHATS",
     payload: data,
   };
 };
@@ -133,21 +91,6 @@ export const studentUpdatePassword = (passwordData) => {
   };
 };
 
-export const chatHelper = (name) => {
-  return async (dispatch) => {
-    try {
-      const { data } = await axios({
-        method: "Post",
-        url: url + "/api/student/getStudentByName",
-        data: name,
-      });
-      dispatch(chatHelp(data.result));
-    } catch (err) {
-      console.log("error in recent", err.message);
-    }
-  };
-};
-
 export const getStudentByRegName = (registrationNumber) => {
   return async (dispatch) => {
     try {
@@ -200,76 +143,6 @@ export const submitOTPStudent = (newPasswordWithOtp, history) => {
         type: SET_ERRORS,
         payload: err.response.data,
       });
-    }
-  };
-};
-
-export const sendMessage = (room, messageobj) => {
-  return async () => {
-    try {
-      const { data } = await axios({
-        method: "Post",
-        url: url + `/api/student/chat/${room}`,
-        data: messageobj,
-      });
-    } catch (err) {
-      console.log("Error in sending message", err.message);
-    }
-  };
-};
-
-export const getPrivateConversation = (roomId) => {
-  return async (dispatch) => {
-    try {
-      const { data } = await axios({
-        method: "Get",
-        url: url + `/api/student/chat/${roomId}`,
-      });
-      dispatch(privateConversation(data.result));
-    } catch (err) {
-      console.log("Error in sending message", err.message);
-    }
-  };
-};
-
-export const getPrivateConversation2 = (roomId) => {
-  return async (dispatch) => {
-    try {
-      const { data } = await axios({
-        method: "Get",
-        url: url + `/api/student/chat/${roomId}`,
-      });
-      dispatch(privateConversation2(data.result));
-    } catch (err) {
-      console.log("Error in sending message", err.message);
-    }
-  };
-};
-
-export const previousChats = (senderName) => {
-  return async (dispatch) => {
-    try {
-      const { data } = await axios({
-        method: "Get",
-        url: url + `/api/student/chat/previousChats/${senderName}`,
-      });
-      dispatch(previousChatsHelper(data.result));
-    } catch (err) {
-      console.log("Error in sending message", err.message);
-    }
-  };
-};
-
-export const newerChats = (receiverName) => {
-  return async (dispatch) => {
-    try {
-      const { data } = await axios({
-        method: "Get",
-        url: url + `/api/student/chat/newerChats/${receiverName}`,
-      });
-      dispatch(newerChatsHelper(data.result));
-    } catch (err) {
-      console.log("Error in sending message", err.message);
     }
   };
 };

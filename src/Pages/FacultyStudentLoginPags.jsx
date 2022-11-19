@@ -91,8 +91,16 @@ const FacultyStudentLoginPags = () => {
   return (
     <div className="container-fluid">
       <div className="row" id="trail">
-        <div className="row align-items-center">
-          <div className="col-lg m-5">
+        <div className="row justify-content-center align-items-center m-0 p-0">
+          <h1
+            className="text-white text-center mt-5"
+            style={{ fontSize: "3.3rem" }}
+          >
+            Login to access dashboard
+          </h1>
+        </div>
+        <div className="row justify-content-center align-items-center m-0 p-0 marginNegativeTop ">
+          <div className="col-10 col-lg-6 m-5 m-lg-0">
             <div
               className="col-md-8 m-auto border"
               style={{
@@ -107,7 +115,7 @@ const FacultyStudentLoginPags = () => {
                   <div className="form-group my-4">
                     <label
                       htmlFor="facRegId"
-                      className="d-flex align-items-center justify-items-center"
+                      className="d-flex align-items-center justify-items-center mb-3"
                     >
                       <IoMdPerson size={30} />
                       <h5 className="mb-0 ml-1">Registration Number</h5>
@@ -130,10 +138,10 @@ const FacultyStudentLoginPags = () => {
                   <div className="form-group my-4">
                     <label
                       htmlFor="passwordFacId"
-                      className="d-flex align-items-center justify-items-center"
+                      className="d-flex align-items-center justify-items-center mb-3"
                     >
                       <RiLockPasswordLine size={30} />
-                      <h5 className="mb-0 ml-1">Password</h5>
+                      <h5 className="mb-0">Password</h5>
                     </label>
                     <input
                       onChange={(e) => setFacultyPassword(e.target.value)}
@@ -151,8 +159,8 @@ const FacultyStudentLoginPags = () => {
                   <div class="row justify-content-center">
                     <div class="col-md-1">
                       {isFacultyLoading && (
-                        <div class="spinner-border text-primary" role="status">
-                          <span class="sr-only">Loading...</span>
+                        <div class="spinner-border text-info" role="status">
+                          <span class="visually-hidden">Loading...</span>
                         </div>
                       )}
                     </div>
@@ -161,9 +169,9 @@ const FacultyStudentLoginPags = () => {
                   {!isFacultyLoading && (
                     <button
                       type="submit"
-                      className="btn btn-info btn-block mb-4"
+                      className="btn btn-info btn-block w-100 mb-4"
                     >
-                      <span></span>Login
+                      <span className="fs-5">Login</span>
                     </button>
                   )}
                 </form>
@@ -175,7 +183,7 @@ const FacultyStudentLoginPags = () => {
               </div>
             </div>
           </div>
-          <div className="col-md m-5">
+          <div className="col-10 col-lg-6 m-5 m-lg-0">
             <div
               className="col-md-8 m-auto border"
               style={{
@@ -190,10 +198,10 @@ const FacultyStudentLoginPags = () => {
                   <div className="form-group my-4">
                     <label
                       htmlFor="studentId"
-                      className="d-flex align-items-center justify-items-center"
+                      className="d-flex align-items-center justify-items-center mb-3"
                     >
                       <IoMdPerson size={30} />
-                      <h5 className="mb-0 ml-1">Registration Number</h5>
+                      <h5 className="mb-0">Registration Number</h5>
                     </label>
                     <input
                       onChange={(e) => setStudentRegNum(e.target.value)}
@@ -213,7 +221,7 @@ const FacultyStudentLoginPags = () => {
                   <div className="form-group my-4">
                     <label
                       htmlFor="passwordId"
-                      className="d-flex align-items-center justify-items-center"
+                      className="d-flex align-items-center justify-items-center mb-3"
                     >
                       <RiLockPasswordLine size={30} />
                       <h5 className="mb-0 ml-1">Password</h5>
@@ -236,8 +244,8 @@ const FacultyStudentLoginPags = () => {
                   <div class="row justify-content-center">
                     <div class="col-md-1">
                       {isStudentLoading && (
-                        <div class="spinner-border text-primary" role="status">
-                          <span class="sr-only">Loading...</span>
+                        <div class="spinner-border text-info" role="status">
+                          <span class="visually-hidden">Loading...</span>
                         </div>
                       )}
                     </div>
@@ -245,13 +253,13 @@ const FacultyStudentLoginPags = () => {
                   {!isStudentLoading && (
                     <button
                       type="submit"
-                      className="btn btn-info btn-block mb-4 "
+                      className="btn btn-info btn-block w-100 mb-4 "
                     >
-                      Login
+                      <span className="fs-5">Login</span>
                     </button>
                   )}
                 </form>
-                <p className="text-center">
+                <p className="text-center mt-2">
                   <Link className="text-center" to="/forgotPassword/student">
                     Forgot Password
                   </Link>

@@ -1,1 +1,1 @@
-export const endpoint = "https://glacial-refuge-65428.herokuapp.com";
+export const endpoint = "https://glacial-journey-19363.herokuapp.com";

@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  studentLogout,
-  newerChats,
-  previousChats,
-} from "../redux/action/studentAction";
+import "../Style/facultyStudentLogin.css";
+import hamburgerIcon from "../Style/Images/icons8-menu-50.svg";
+import { studentLogout } from "../redux/action/studentAction";
 import "../Style/facultyStudentLogin.css";
 
 const Home = () => {
@@ -18,25 +16,27 @@ const Home = () => {
     }
   }, [store.student.student.student.name]);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(newerChats(store.student.student.student.name));
-    dispatch(previousChats(store.student.student.student.name));
-  }, [store.student.newerChats.length]);
   const logoutHandler = () => {
     dispatch(studentLogout());
     history.push("/");
   };
   return (
-    <div className="container-fluid p-0">
-      <div className="row">
+    <div className="container-fluid m-0 p-0 ">
+      <div className="row ">
         <div className="col">
-          <nav className="navbar navbar-expand-lg facultyNav ">
+          <nav className="navbar navbar-expand-lg facultyNav d-flex align-items-center justify-content-between p-3 ">
             <h4 className="navbar-brand logoNav" href="">
               LDRP
             </h4>
 
-            <Link to="/home" className="text-decoration-none z100">
-              <button type="button" className="btn z100 linkHover justifySelf">
+            <Link
+              to="/home"
+              className="text-decoration-none z100 d-none d-lg-block"
+            >
+              <button
+                type="button"
+                className="btn linkHover z100 linkHover justifySelf"
+              >
                 {name.toUpperCase()}
               </button>
             </Link>
@@ -50,12 +50,24 @@ const Home = () => {
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              <span className="navbar-toggler-icon"></span>
+              <span className="navbar-toggler-icon" style={{ color: "white" }}>
+                <img src={hamburgerIcon} alt="" className="hamburgerIcon" />
+              </span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav">
+              <ul className="navbar-nav align-items-end">
+                <li className="nav-item d-md-block d-lg-none">
+                  <Link to="/home" className="text-decoration-none z100">
+                    <button
+                      type="button"
+                      className="btn linkHover z100 linkHover justifySelf"
+                    >
+                      {name.toUpperCase()}
+                    </button>
+                  </Link>
+                </li>
                 <li className="nav-item">
-                  <button type="button" className="btn">
+                  <button type="button" className="btn linkHover">
                     <Link
                       to="/student/updateProfile"
                       className="text-decoration-none linkHover"
@@ -100,12 +112,24 @@ const Home = () => {
                 </li>
 
                 <li className="nav-item">
-                  <button type="button" className="btn">
+                  <button type="button" className="btn linkHover">
                     <Link
                       to="/student/updatePassword"
                       className="text-decoration-none linkHover"
                     >
                       <li>UPDATE PASSWORD</li>
+                    </Link>
+                  </button>
+                </li>
+                <li className="nav-item	d-md-block d-lg-none">
+                  <button
+                    style={{ listStyle: "none" }}
+                    onClick={logoutHandler}
+                    type="button"
+                    className="btn linkHover"
+                  >
+                    <Link className="text-decoration-none linkHover">
+                      LOGOUT
                     </Link>
                   </button>
                 </li>
@@ -116,7 +140,7 @@ const Home = () => {
                 style={{ listStyle: "none" }}
                 onClick={logoutHandler}
                 type="button"
-                className="btn"
+                className="btn linkHover d-none d-lg-block"
               >
                 <li className="text-decoration-none linkHover">LOGOUT</li>
               </button>
